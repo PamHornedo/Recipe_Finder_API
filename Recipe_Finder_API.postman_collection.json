@@ -1,0 +1,212 @@
+{
+  "info": {
+    "_postman_id": "recipe-finder-api",
+    "name": "Recipe Finder API",
+    "description": "Complete collection for testing the Recipe Finder API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "API Info",
+      "item": [
+        {
+          "name": "Root Endpoint",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["/"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/health",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["health"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Recipes",
+      "item": [
+        {
+          "name": "Search Recipes - Basic",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/recipes/search?query=chicken",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["recipes", "search"],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "chicken",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": "Search for recipes with the keyword 'chicken'. Returns up to 10 results by default."
+          },
+          "response": []
+        },
+        {
+          "name": "Search Recipes - With Limit",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/recipes/search?query=pasta&number=5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["recipes", "search"],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "pasta",
+                  "type": "text"
+                },
+                {
+                  "key": "number",
+                  "value": "5",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": "Search for recipes limiting the results to 5 recipes."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Recipe by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/recipes/715538",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["recipes", "715538"]
+            },
+            "description": "Get detailed information about a specific recipe by its ID. This example uses recipe ID 715538 (Homemade Gnocchi)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Random Recipe",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/recipes/random",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["recipes", "random"]
+            },
+            "description": "Get a random recipe suggestion."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Random Recipe - With Tags",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/recipes/random?tags=vegetarian,dessert",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["recipes", "random"],
+              "query": [
+                {
+                  "key": "tags",
+                  "value": "vegetarian,dessert",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": "Get a random recipe filtered by tags (vegetarian, dessert, vegan, etc.)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Ingredients",
+      "item": [
+        {
+          "name": "Search Ingredients - Basic",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/recipes/ingredients?query=apple",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["recipes", "ingredients"],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "apple",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": "Search for ingredient information. Returns up to 10 results by default."
+          },
+          "response": []
+        },
+        {
+          "name": "Search Ingredients - With Limit",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/recipes/ingredients?query=tomato&number=5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["recipes", "ingredients"],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "tomato",
+                  "type": "text"
+                },
+                {
+                  "key": "number",
+                  "value": "5",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": "Search for ingredients with a limit on the number of results."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
