@@ -1,4 +1,7 @@
+// axios: HTTP client used to make requests to external APIs
 import axios from 'axios';
+
+// imports TypeScript interfaces/types
 import {
   RecipeSearchResponse,
   RecipeDetails,
@@ -6,10 +9,12 @@ import {
   IngredientSearchResponse,
 } from '../types/recipes';
 
+// grouping related API logic together
 class SpoonacularService {
   private apiKey: string;
   private baseUrl: string = 'https://api.spoonacular.com';
 
+  // requires an API key when creating service
   constructor(apiKey: string) {
     if (!apiKey) {
       throw new Error('Spoonacular API key is required. Set SPOONACULAR_API_KEY in .env file');
